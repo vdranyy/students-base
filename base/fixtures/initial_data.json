@@ -4,7 +4,26 @@
 		"pk": 1,
 		"fields": {
 			"name": "Python",
-			"praepostor": 1
+			"praepostor": 1,
+			"slug": "python"
+		}
+	},
+	{
+		"model": "base.group",
+		"pk": 2,
+		"fields": {
+			"name": "JavaScript",
+			"praepostor": 5,
+			"slug": "javascript"
+		}
+	},
+	{
+		"model": "base.group",
+		"pk": 3,
+		"fields": {
+			"name": "HTML-CSS",
+			"praepostor": 10,
+			"slug": "html-css"
 		}
 	},
 	{
@@ -14,7 +33,8 @@
 			"name": "Dranyy Vova",
 			"birthday": "1984-03-23",
 			"student_ticket": 1,
-			"student_group": 1
+			"student_group": 1,
+			"slug": "dranyy-vova"
 		}
 	},
 	{
@@ -24,7 +44,118 @@
 			"name": "Dow John",
 			"birthday": "1939-10-03",
 			"student_ticket": 2,
-			"student_group": 1
+			"student_group": 1,
+			"slug": "dow-john"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 3,
+		"fields": {
+			"name": "Humperdink Engelbert",
+			"birthday": "1936-01-21",
+			"student_ticket": 3,
+			"student_group": 1,
+			"slug": "humperdink-engelbert"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 4,
+		"fields": {
+			"name": "Desckein Roland",
+			"birthday": "1950-04-5",
+			"student_ticket": 4,
+			"student_group": 1,
+			"slug": "desckein-roland"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 5,
+		"fields": {
+			"name": "Severance Charles",
+			"birthday": "1969-12-11",
+			"student_ticket": 5,
+			"student_group": 2,
+			"slug": "severance-charles"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 6,
+		"fields": {
+			"name": "Cage Nickolas",
+			"birthday": "1966-06-02",
+			"student_ticket": 6,
+			"student_group": 2,
+			"slug": "cage-nickolas"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 7,
+		"fields": {
+			"name": "Gallagher Rory",
+			"birthday": "1946-05-31",
+			"student_ticket": 7,
+			"student_group": 2,
+			"slug": "gallagher-rory"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 8,
+		"fields": {
+			"name": "Di Caprio Leonardo",
+			"birthday": "1975-09-28",
+			"student_ticket": 8,
+			"student_group": 2,
+			"slug": "di-caprio-leonardo"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 9,
+		"fields": {
+			"name": "Percival Harry",
+			"birthday": "1984-11-05",
+			"student_ticket": 9,
+			"student_group": 2,
+			"slug": "percival-harry"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 10,
+		"fields": {
+			"name": "Backham David",
+			"birthday": "1976-08-11",
+			"student_ticket": 10,
+			"student_group": 3,
+			"slug": "backham-david"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 11,
+		"fields": {
+			"name": "Jordan Michael",
+			"birthday": "1971-03-04",
+			"student_ticket": 11,
+			"student_group": 3,
+			"slug": "jordan-michael"
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 12,
+		"fields": {
+			"name": "Woods Tiger",
+			"birthday": "1970-07-11",
+			"student_ticket": 12,
+			"student_group": 3,
+			"slug": "woods-tiger"
 		}
 	}
 ]

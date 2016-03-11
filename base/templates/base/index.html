@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Students Base</title>
+	</head>
+	<body>
+		<h1>Students Base</h1>
+		<h2>List of all groups</h2>
+		<table>
+			<thead>
+				<td>Group name</td>
+				<td>Number of students</td>
+				<td>Praeposter</td>
+			</thead>
+			<tbody>
+				{% for group in groups %}
+					<tr>
+						<td>{{ group.name }}</td>
+						<td>{{ group.student_set.count }}<td>
+						<td>{{ group.praepostor}}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</body>
+</html>

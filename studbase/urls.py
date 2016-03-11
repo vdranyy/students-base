@@ -17,5 +17,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+	# Admin
     url(r'^admin/', include(admin.site.urls)),
+
+	# Apps
+	url(r'^$', 'base.views.index', name='index'),
+	url(r'^students/(?P<group>[\w-]+)/(?P<student>[\w-]+)/$', 'base.views.student_detail', name='student_detail'),
 ]

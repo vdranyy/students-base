@@ -1,3 +1,8 @@
 from django.shortcuts import render
+from .models import Group
 
-# Create your views here.
+
+def index(request):
+	context = {'groups': Group.objects.all()}
+	return render(request, 'base/index.html', context)
+

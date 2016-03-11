@@ -15,6 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50)),
+                ('slug', models.SlugField()),
             ],
         ),
         migrations.CreateModel(
@@ -24,6 +25,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=80)),
                 ('birthday', models.DateField()),
                 ('student_ticket', models.IntegerField()),
+                ('slug', models.SlugField()),
                 ('student_group', models.ForeignKey(to='base.Group')),
             ],
         ),
