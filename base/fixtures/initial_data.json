@@ -1,0 +1,30 @@
+[
+	{
+		"model": "base.group",
+		"pk": 1,
+		"fields": {
+			"name": "Python",
+			"praepostor": 1
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 1,
+		"fields": {
+			"name": "Dranyy Vova",
+			"birthday": "1984-03-23",
+			"student_ticket": 1,
+			"student_group": 1
+		}
+	},
+	{
+		"model": "base.student",
+		"pk": 2,
+		"fields": {
+			"name": "Dow John",
+			"birthday": "1939-10-03",
+			"student_ticket": 2,
+			"student_group": 1
+		}
+	}
+]
