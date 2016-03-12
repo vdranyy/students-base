@@ -22,5 +22,6 @@ urlpatterns = [
 
 	# Apps
 	url(r'^$', 'base.views.index', name='index'),
+	url(r'^students/(?P<group>[\w-]+)/$', 'base.views.group_detail', name='group_detail'),
 	url(r'^students/(?P<group>[\w-]+)/(?P<student>[\w-]+)/$', 'base.views.student_detail', name='student_detail'),
 ]
