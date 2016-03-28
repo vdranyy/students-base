@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Students Base</title>
-	</head>
-	<body>
-		<h1>Students Base</h1>
-		<h2>{{ student.name }}</h2>
-		<br>
-		<h3>{{ student.birthday }}</h3>
-		<h3>{{ student.student_ticket }}</h3>
-		<h3>{{ student.student_group }}</h3>
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Students Base</h1>
+	<h2>{{ student.name }}</h2>
+	<br>
+	<h3>{{ student.birthday }}</h3>
+	<h3>{{ student.student_ticket }}</h3>
+	<h3>{{ student.student_group }}</h3>
+{% endblock %}

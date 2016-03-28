@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Students Base</title>
-	</head>
-	<body>
-		<h1>Students Base</h1>
-		<h2>List of all students</h2>
-		<table>
-			<thead>
-				<td>Student name</td>
-			</thead>
-			<tbody>
-				{% for student in group.student_set.all %}
-					<tr>
-						<td>{{ student.name }}</td>
-					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Students Base</h1>
+	<h2>List of all students</h2>
+	<table class="table">
+		<thead>
+			<td></td>
+			<td>Student name</td>
+		</thead>
+		<tbody>
+			{% for student in group.student_set.all %}
+				<tr>
+					<td>{{ forloop.counter }}</td>
+					<td><a href="{% url 'student_detail' group.slug student.slug %}">{{ student.name }}</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

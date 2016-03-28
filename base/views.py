@@ -9,11 +9,10 @@ def index(request):
 
 def group_detail(request, group):
 	context = {'group': Group.objects.get(slug=group)}
-	print context
 	return render(request, 'base/group_detail.html', context)
 
 
 def student_detail(request, group, student):
-	context = {'student': Student.objects.get(slug=student, group__slug=group)}
+	context = {'student': Group.objects.get(slug=group).student_set.filter(slug=student)[0]}
 	return render(request, 'base/student_detail.html', context)
 
