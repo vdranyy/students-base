@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h2>Update student</h2>
+	<h2>{{ student.name }}</h2>
+	<br>
+	<form action="{% url 'update_student' group.slug student.slug %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button class="btn btn-default">Submit</button>
+	</form>
+{% endblock %}

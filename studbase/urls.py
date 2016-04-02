@@ -20,6 +20,24 @@ urlpatterns = [
 	# Admin
     url(r'^admin/', include(admin.site.urls)),
 
+	# create group
+	url(r'^add_group', 'base.views.add_group', name='add_group'),
+
+	# create student
+	url(r'^students/(?P<group>[\w-]+)/add_student', 'base.views.add_student', name='add_student'),
+
+	# update group
+	url(r'^students/(?P<group>[\w-]+)/update_group', 'base.views.update_group', name='update_group'),
+	
+	# update student info
+	url(r'^students/(?P<group>[\w-]+)/(?P<student>[\w-]+)/update_student', 'base.views.update_student', name='update_student'),
+
+	# delete group
+	url(r'^students/(?P<group>[\w-]+)/delete_group', 'base.views.delete_group', name='delete_group'),
+
+	# delete student
+	url(r'^student/(?P<group>[\w-]+)/(?P<student>[\w-]+)/delete_student', 'base.views.delete_student', name='delete_student'),
+
 	# Apps
 	url(r'^$', 'base.views.index', name='index'),
 	url(r'^students/(?P<group>[\w-]+)/$', 'base.views.group_detail', name='group_detail'),

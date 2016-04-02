@@ -1,20 +1,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>Students Base</h1>
 	<h2>List of all students</h2>
 	<table class="table">
 		<thead>
 			<td></td>
 			<td>Student name</td>
+			<td></td>
+			<td></td>
 		</thead>
 		<tbody>
 			{% for student in group.student_set.all %}
 				<tr>
 					<td>{{ forloop.counter }}</td>
 					<td><a href="{% url 'student_detail' group.slug student.slug %}">{{ student.name }}</a></td>
+					<td><a href="{% url 'update_student' group.slug student.slug %}" class="btn btn-xs btn-info">Edit</td>
+					<td><a href="{% url 'delete_student' group.slug student.slug %}" class="btn btn-xs btn-danger">Delete</td>
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
+	<a href="{% url 'add_student' group.slug %}" class="btn btn-info" >Add student</a>
 {% endblock %}
