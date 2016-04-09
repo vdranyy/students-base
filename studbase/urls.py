@@ -42,4 +42,10 @@ urlpatterns = [
 	url(r'^$', 'base.views.index', name='index'),
 	url(r'^students/(?P<group>[\w-]+)/$', 'base.views.group_detail', name='group_detail'),
 	url(r'^students/(?P<group>[\w-]+)/(?P<student>[\w-]+)/$', 'base.views.student_detail', name='student_detail'),
+
+	url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'extra_context': {'next': '/'}}, name='login'), 
+	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
+
+	# include AUTH
+	url(r'^accounts/', include('django.contrib.auth.urls')),
 ]

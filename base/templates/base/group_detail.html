@@ -14,11 +14,15 @@
 				<tr>
 					<td>{{ forloop.counter }}</td>
 					<td><a href="{% url 'student_detail' group.slug student.slug %}">{{ student.name }}</a></td>
-					<td><a href="{% url 'update_student' group.slug student.slug %}" class="btn btn-xs btn-info">Edit</td>
-					<td><a href="{% url 'delete_student' group.slug student.slug %}" class="btn btn-xs btn-danger">Delete</td>
+					{% if request.user.is_authenticated %}
+						<td><a href="{% url 'update_student' group.slug student.slug %}" class="btn btn-xs btn-info">Edit</td>
+						<td><a href="{% url 'delete_student' group.slug student.slug %}" class="btn btn-xs btn-danger">Delete</td>
+					{% endif %}
 				</tr>
 			{% endfor %}
 		</tbody>
 	</table>
-	<a href="{% url 'add_student' group.slug %}" class="btn btn-info" >Add student</a>
+	{% if request.user.is_authenticated %}
+		<a href="{% url 'add_student' group.slug %}" class="btn btn-info" >Add student</a>
+	{% endif %}
 {% endblock %}
