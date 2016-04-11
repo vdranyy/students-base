@@ -6,20 +6,8 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row">
-			<ul class="nav navbar-nav navbar-left">
-				<li><h1><a href="{% url 'index' %}">Students Base</a></h1></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				{% if request.user.is_authenticated %}
-					<li><a href="#">{{ user.get_username }}</a></li>
-					<li><a href="{% url 'logout' %}">Logout</a></li>
-				{% else %}
-					<li><a href="{% url 'login' %}">Login</a></li>
-					<li><a href="#">Register</a></li>
-				{% endif %}
-			</ul>
-		</div>
+		{% include 'base/navbar.html' %}
+		
 		{% block content %}{% endblock %}
 	</div>
 </body>

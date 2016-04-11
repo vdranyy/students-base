@@ -1,8 +1,10 @@
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.text import slugify
 from .models import Group, Student
-from .forms import GroupForm, StudentForm
+from .forms import GroupForm, StudentForm, UserForm
 
 
 # base view, list of groups
@@ -104,3 +106,40 @@ def update_group(request, group):
 	context = {'group': group, 'form': form}
 	return render(request, 'base/update_group.html', context)
 
+
+# register new user
+def register(request):
+	if request.method == 'POST':
+		form = UserForm(request.POST)
+		if form.is_valid():
+			username = form.cleaned_data['username']
+			password = form.clean_password()
+			user = User.objects.create_user(username=username, password=password)
+			user.save()
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				return HttpResponseRedirect('accounts/register/create_teacher')
+	else:
+		form = UserForm()
+	context = {'form': form}
+	return render(request, 'base/register.html', context)
+
+
+# create_teacher
+def create_teacher(request):
+	user = request.user
+	if request.method == 'POST':
+		form = TeacherForm(request.POST)
+		if form.is_valid():
+			teacher = form.save(commit=False)
+			teacher.user = user
+			teacher.save()
+			return HttpResponseRedirect('/')
+		else:
+			user.delete()
+			return HttpResponseRedirect('accounts/register/')
+	else:
+		form = TeacherForm()
+	context = {'form': form}
+	return render(request, 'base/create_teacher.html', context)

@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
 	# create group
-	url(r'^add_group', 'base.views.add_group', name='add_group'),
+	url(r'^students/add_group', 'base.views.add_group', name='add_group'),
 
 	# create student
 	url(r'^students/(?P<group>[\w-]+)/add_student', 'base.views.add_student', name='add_student'),
@@ -45,6 +45,8 @@ urlpatterns = [
 
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'extra_context': {'next': '/'}}, name='login'), 
 	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}, name='logout'),
+	url(r'accounts/register/$', 'base.views.register', name='register'),
+	url(r'accounts/register/create_teacher', 'base.views.create_teacher', name='create_teacher'),
 
 	# include AUTH
 	url(r'^accounts/', include('django.contrib.auth.urls')),
