@@ -1,5 +1,5 @@
 from django import forms 
-from .models import Group, Student
+from .models import Group, Student, Teacher
 
 
 class GroupForm(forms.ModelForm):
@@ -28,4 +28,11 @@ class UserForm(forms.Form):
 		if password1 and password2 and password1 != password2:
 			raise forms.ValidationError('Password didn\'t match')
 		return password2
+
+
+class TeacherForm(forms.ModelForm):
+	
+	class Meta:
+		model = Teacher
+		fields = ['name', 'birthday', 'teacher_id']
 

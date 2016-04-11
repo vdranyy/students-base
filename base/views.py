@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.utils.text import slugify
 from .models import Group, Student
-from .forms import GroupForm, StudentForm, UserForm
+from .forms import GroupForm, StudentForm, UserForm, TeacherForm
 
 
 # base view, list of groups
@@ -132,7 +132,10 @@ def create_teacher(request):
 	if request.method == 'POST':
 		form = TeacherForm(request.POST)
 		if form.is_valid():
+			teacher_name = form.cleaned_data['name']
+			teacher_slug = slugify(teacher_name)
 			teacher = form.save(commit=False)
+			teacher.slug = teacher_slug
 			teacher.user = user
 			teacher.save()
 			return HttpResponseRedirect('/')
