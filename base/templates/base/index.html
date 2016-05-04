@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load edit_admin %}
 
 {% block content %}
 	<h2>List of all groups</h2>
@@ -19,6 +20,7 @@
 					{% if request.user.is_authenticated %}
 						<td><a href="{% url 'update_group' group.slug %}" class="btn btn-xs btn-info">Edit</a></td>
 						<td><a href="{% url 'delete_group' group.slug %}" class="btn btn-xs btn-danger">Delete</a></td>
+						<td><a href="{% edit_object group %}" class="btn btn-xs btn-danger">Edit in admin</a></td
 					{% endif %}
 				</tr>
 			{% endfor %}
@@ -28,9 +30,25 @@
 		<a href="{% url 'add_group' %}" class="btn btn-info" >Add group</a>
 	{% endif %}
 	<div class="row">
-		<div class="col-sm-2"><p>Installed apps: </p><br>{{ settings.INSTALLED_APPS }}</div>
-		<div class="col-sm-4"><p>Middleware classes: </p><br>{{ settings.MIDDLEWARE_CLASSES }}</div>
-		<div class="col-sm-4"><p>Template options: </p><br>{{ settings.TEMPLATES.0.OPTIONS.context_processors }}</div>
-		<div class="col-sm-2"><p>WSGI application: </p><br>{{ settings.WSGI_APPLICATION }}</div>
+		<div class="col-sm-6"><h4>Installed apps: </h4><br>
+			{% for app in settings.INSTALLED_APPS %}
+				<h5>{{ forloop.counter }}: {{ app }}</h5>
+			{% endfor %}
+		</div>
+		<div class="col-sm-6"><h4>Middleware classes: </h4><br>
+				{% for mid_class in settings.MIDDLEWARE_CLASSES %}
+					<h5>{{ forloop.counter }}: {{ mid_class }}</h5>
+				{% endfor %}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6"><h4>Template options: </h4><br>
+			{% for processor in settings.TEMPLATES.0.OPTIONS.context_processors %}
+				<h5>{{ forloop.counter }}: {{ processor }}</h5>
+			{% endfor %}
+		</div>
+		<div class="col-sm-6"><h4>WSGI application: </h4><br>
+			{{ settings.WSGI_APPLICATION }}
+		</div>
 	</div>
 {% endblock %}

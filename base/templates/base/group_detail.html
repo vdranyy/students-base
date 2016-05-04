@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load edit_admin %}
 
 {% block content %}
 	<h2>List of all students</h2>
@@ -17,6 +18,7 @@
 					{% if request.user.is_authenticated %}
 						<td><a href="{% url 'update_student' group.slug student.slug %}" class="btn btn-xs btn-info">Edit</td>
 						<td><a href="{% url 'delete_student' group.slug student.slug %}" class="btn btn-xs btn-danger">Delete</td>
+						<td><a href="{% edit_object student %}" class="btn btn-xs btn-danger">Edit in admin</a></td>
 					{% endif %}
 				</tr>
 			{% endfor %}
