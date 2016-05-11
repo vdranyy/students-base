@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -32,3 +33,11 @@ class Teacher(models.Model):
 	def __unicode__(self):
 		return self.name
 
+
+class History(models.Model):
+	post = models.CharField(max_length=200)
+	date = models.DateTimeField()
+
+	def set_datetime(self):
+		self.date = datetime.now()
+		
